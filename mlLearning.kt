@@ -1,6 +1,8 @@
 import java.math.BigDecimal
 import kotlin.math.exp
 import kotlin.math.pow
+import kotlin.random.Random.Default.nextDouble
+
 
 fun main() {
 
@@ -104,9 +106,9 @@ var sumOfLoss = 0.0
 
 var activationValueOfOutputNeuron = 0.0
 
-var weightsHiddenNeuron1: Array<Double> = arrayOf(0.69, 0.14, 0.93)
-var weightsHiddenNeuron2: Array<Double> = arrayOf(0.95, 0.63, 0.29)
-var weightsOutputNeuron: Array<Double> = arrayOf(0.10, 0.92)
+var weightsHiddenNeuron1: Array<Double> = arrayOf(nextDouble(), nextDouble(), nextDouble())
+var weightsHiddenNeuron2: Array<Double> = arrayOf(nextDouble(), nextDouble(), nextDouble())
+var weightsOutputNeuron: Array<Double> = arrayOf(nextDouble(), nextDouble())
 
 var inputNeuronsValue = arrayOf(0.0, 0.0, 0.0)
 var hiddenNeuronsWeightsAll = arrayOf(arrayOf(0.0, 0.0, 0.0), arrayOf(0.0, 0.0, 0.0))
