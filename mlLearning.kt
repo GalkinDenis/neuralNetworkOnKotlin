@@ -1,11 +1,10 @@
-package ru.denis.mltest
-
 import java.math.BigDecimal
 import kotlin.math.exp
 import kotlin.math.pow
 
 fun main() {
 
+    //OUTPUT ON CONSOLE
     //State of net from start
     println("\nState of net from start:" + "\n" +
             "1st hidden neuron weight to 1st input: " + weightsHiddenNeuron1[0] + "\n" +
@@ -17,7 +16,9 @@ fun main() {
             "2st hidden neuron weight to 3st input: " + weightsHiddenNeuron2[2] + "\n" +
             "\n"
     )
+    //OUTPUT ON CONSOLE
 
+    //OUTPUT ON CONSOLE
     //Predict before training
     println("Predict before training:")
     for(a in trainingData.indices) {
@@ -26,6 +27,7 @@ fun main() {
                 "expected value: " + expectedValue[a] + " | actual predict value: ${predict(trainingData[a])}"
         )
     }
+    //OUTPUT ON CONSOLE
 
 
     //Training
@@ -36,20 +38,14 @@ fun main() {
             training(trainingData[b], expectedValue[b], c, b)
         }
         /*
-        //Details
+        //DETAILS
         println("Mean square error of epoch #$c: ${meanSquareError(lossSqrt)}\n")
+        //DETAILS
          */
         sumOfLoss = 0.0
     }
 
-    //Predict after training
-    println("Predict after training:")
-    for(a in trainingData.indices) {
-        println("Input set: " + "[" + trainingData[a][0] + " " + trainingData[a][1] + " " + trainingData[a][2] + "] " +
-                "expected value: " + expectedValue[a] + " | actual predict value: ${predict(trainingData[a])}"
-        )
-    }
-
+    //OUTPUT ON CONSOLE
     //State of net after training
     println("\nState of net after training:" + "\n" +
             "1st hidden neuron weight to 1st input: " + weightsHiddenNeuron1[0] + "\n" +
@@ -60,6 +56,17 @@ fun main() {
             "2st hidden neuron weight to 2st input: " + weightsHiddenNeuron2[1] + " | output neuron weight to 2st hidden neuron: " + weightsOutputNeuron[1] + "\n" +
             "2st hidden neuron weight to 3st input: " + weightsHiddenNeuron2[2] + "\n"
     )
+    //OUTPUT ON CONSOLE
+
+    //OUTPUT ON CONSOLE
+    //Predict after training
+    println("Predict after training:")
+    for(a in trainingData.indices) {
+        println("Input set: " + "[" + trainingData[a][0] + " " + trainingData[a][1] + " " + trainingData[a][2] + "] " +
+                "expected value: " + expectedValue[a] + " | actual predict value: ${predict(trainingData[a])}"
+        )
+    }
+    //OUTPUT ON CONSOLE
 
 }
 
@@ -116,11 +123,11 @@ fun training(trainingData: Array<Double>, expectedValue: Double, count: Int, tra
     inputNeuronsValue = arrayOf(trainingData[0], trainingData[1], trainingData[2])
 
     /*
-    //Details
+    //DETAILS
     println("Epoch: $count\n" +
             "Training set: $trainingSet\n" +
             "Input neurons: " + trainingData[0] + " " + trainingData[1] + " " + trainingData[2])
-
+    //DETAILS
      */
 
     hiddenNeuronsWeightsAll = arrayOf(
@@ -145,11 +152,11 @@ fun training(trainingData: Array<Double>, expectedValue: Double, count: Int, tra
     )
 
     /*
-    //Details
+    //DETAILS
     println("1st hidden neuron: sum of (weight * input) -> $sumOfHiddenNeuron1 | sigmoid(output) -> " + activationValuesOfAllHiddenNeurons[0] + "\n" +
             "2st hidden neuron: sum of (weight * input) -> $sumOfHiddenNeuron2 | sigmoid(output) -> " + activationValuesOfAllHiddenNeurons[1]
     )
-
+    //DETAILS
      */
 
     sumOfOutputNeuron = 0.0
@@ -160,10 +167,10 @@ fun training(trainingData: Array<Double>, expectedValue: Double, count: Int, tra
     activationValueOfOutputNeuron = activationFunction(sumOfOutputNeuron)
 
     /*
-    //Details
+    //DETAILS
     println("Output neuron: sum of (weight * input) -> $sumOfOutputNeuron | sigmoid(output) -> " + activationValueOfOutputNeuron.toBigDecimal() + " | expected value -> " + expectedValue + "\n" +
             "Error: " + (activationValueOfOutputNeuron - expectedValue).pow(2).toBigDecimal() + "\n")
-
+    //DETAILS
      */
 
     lossSqrt.add(activationValueOfOutputNeuron - expectedValue)
