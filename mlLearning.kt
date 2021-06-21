@@ -170,7 +170,7 @@ fun training(trainingData: Array<Double>, expectedValue: Double, count: Int, tra
 
     /*
     //DETAILS
-    println("Output neuron: sum of (weight * input) -> $sumOfOutputNeuron | sigmoid(output) -> " + activationValueOfOutputNeuron.toBigDecimal() + " | expected value -> " + expectedValue + "\n" +
+    println("Output neuron: sum of (weight * input) -> $sumOfOutputNeuron | sigmoid(output\in fact value) -> " + activationValueOfOutputNeuron.toBigDecimal() + " | predictable value -> " + expectedValue + "\n" +
             "Error: " + (activationValueOfOutputNeuron - expectedValue).pow(2).toBigDecimal() + "\n")
     //DETAILS
      */
